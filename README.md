@@ -25,24 +25,26 @@ Older system:
 ```
 service <service_name> stop/start/status/restart
 ```
+Login to multiple linux servers:
+```
+csshx IP IP IP
+```
 
-Remove New line:
-```
-perl -p -i -e 's/\R//g;' filename
-```
-Vlookup:
-```
-=iferror(VLOOKUP(A64,Sheet33!$A$1:$C$264,3,False),0)
-```
 Kill Hung Chef process:
 ```
 sudo ps -ef|awk '/chef/ {print $2}'|xargs -n1 -I% bash -c "sudo kill -9 %"
 ```
 
-Validate SSL certificate:
+Remove New line from the file: This is very useful for storing secrets and passwords for automation
 ```
-nmap --script ssl-cert fdatafeed-ccwebint-e2e.platform.intuit.net -p 443
+perl -p -i -e 's/\R//g;' filename
 ```
+
+google Doc: Vlookup:
+```
+=iferror(VLOOKUP(A64,Sheet33!$A$1:$C$264,3,False),0)
+```
+
 
 AWS:
 ```
@@ -50,11 +52,14 @@ aws --profile cfao-fdsqa --region us-west-2 ec2 describe-network-interfaces
 aws --profile cfao-fdsqa --region us-west-2 iam list-server-certificates
 ```
 
-csshx IP IP IP opens multiple linux box
-
-SSL END DATE:
+SSL Management
 ```
+Find End date:
 openssl x509 -enddate -noout -in file.pem
+Validate cert with secret key:
+openssl rsa -in file.pem
+Validate cert with end point:
+nmap --script ssl-cert fdatafeed-ccwebint-e2e.platform.intuit.net -p 443
 ```
 
 Splunk Queries:
@@ -101,8 +106,7 @@ index=index_name respStatus
 ```
 
 
-
-git
+git:
 
 ```
 #!/bin/bash
