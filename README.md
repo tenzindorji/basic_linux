@@ -68,4 +68,34 @@ index=index_name total_request_execution_time sourctype=webservice|dedup tid|sta
 index=index_name |stats dc(tid) as total dc(eval(if(status>=200 AND status<=299, tid, null))) as success dc(eval(if(status>=399, tid, null))) as failure|eval successrate=100*(success/total)
 index=index_name Xhost=myhost.com |table _time,xHost,status,svcTime
 index=index_name TotalResponseTime|bucket _time span=5m |stats perc50(TotalResponseTime) as Avg_resp_time perc99(TotalResponseTime) as percentile_99
+
+index=index_name  
+| stats dc(tid) as requests by providerId ErrorCode
+| eventstats sum(requests) as total_requests sum(eval(if(ErrorCode!="0",requests,null))) as total_failures by providerId
+| eval perc_per_provider_and_error=100*(requests/total_requests)
+| eval perc_overall_failure_per_provider=100*(total_failures/total_requests)
+| where perc_overall_failure_per_provider>=1 and ErrorCode!="0"
+| lookup getdata_providerlookup.csv id AS providerId OUTPUT name AS providerName
+| fieldformat perc_overall_failure_per_provider=round(perc_overall_failure_per_provider,2)."%"
+| fieldformat perc_per_provider_and_error=round(perc_per_provider_and_error,2)."%"
+| fields providerId providerName ErrorCode total_requests total_failures requests perc_overall_failure_per_provider perc_per_provider_and_error
+
+
+index=index_name sourcetype=profile executionDetails AcquireOMSMessageListener providerId = "1234"
+| stats count as Total, sum(eval(if(ErrorCode!="0",1,0))) as Failure by providerId
+| eval Percentage_Failure=Failure*100/Total
+| fieldformat Percentage_Failure=round(Percentage_Failure,1)."%"
+| where Percentage_Failure > 0
+| lookup getdata_providerlookup.csv id AS providerId OUTPUT name AS providerName
+| table providerName, Total, Failure, Percentage_Failure
+
+index=index_name ErrorCode!=0 |timechart span=1m count by ErrorCode
+index=index_name ErrorCode=-<errorcode>|chart count by ErrorMessage
+index=index_name ErrorCode=7500 |timechart span=15m usenull=f count by ErrorMessage
+index=index_name ErrorCode!=0 |timechart span=15m useother=f count by ErrorMessage
+
+
+Dashboard query:
+index=index_name respStatus
+| timechart span=$tok_span$  count by respStatus
 ```
