@@ -50,6 +50,7 @@ AWS:
 ```
 aws --profile cfao-fdsqa --region us-west-2 ec2 describe-network-interfaces
 aws --profile cfao-fdsqa --region us-west-2 iam list-server-certificates
+aws iam list-server-certificates
 ```
 
 SSL Management
@@ -130,3 +131,55 @@ git pull && \
 printf "\n"
 
 ```
+
+Basic Mysql:
+
+```
+ssh -v DB server
+sodu -i
+mysql --login-path=admin
+mysql -h hostname -u root -p
+mysql -u USERNAME -p
+
+create database dbname;
+show databases;
+use dbname; #switch DB
+show tables;
+describe tablename;
+drop database dbname; #delete DB
+drop table tablename;
+select * from tablename; #show all data in a table
+show columns from tablename;
+select * from tablename where fieldname=whatever; #show certain selected rows with the value whatever
+
+#inner join
+select Orders.OrderID, Orders.OrderDate, Customers.CustomerName from Orders
+inner join Customers on Orders.CustomerID=Customers.CustomerID;
+
+mysqldump -u root -ppassword --opt > /tmp/allmysqldatabases.sql #dump all the databases
+mysqldump -u username -ppassword --databases databasename > /tmp/databasename.sql
+mysqldump -u username -ppassword databaname tablename > /tmp/tablename.sql
+
+mysql -u username -ppassword databasename < /tmp/databasename.sql #restore database.
+
+select * from <tablename> limit 5;
+
+COMMIT;
+```
+
+
+AWS Cloud Formation:
+Functions:
+Fn::Base64
+Fn::FindInMap
+Fn::GetAtt
+Fn::GetAZs
+Fn::Join
+Fn::Select
+Ref
+
+Pseudo Parameters:
+AWS::NotificationARNs
+AWS::Region
+AWS::StackId
+AWS::StackName
