@@ -31,6 +31,7 @@ csshx IP IP IP
 ```
 
 hardlinks and softlinks:
+
 hardlinks is another name for a file and it cannot be used for directories and filesystem.
 Its inode address remains same. Even original file is deleted, hardlink still points to same inode address and can open the content.
 Changes to the file content is reflected to all hardlinks.
@@ -38,13 +39,17 @@ File is only deleted once all the hardlinks are deleted
 Hardlink have same inode
 
 command:
+```
 ln filename hardlink_name
+```
 
 Softlinks:
+
 Its points to another entry somewhere in the file system.
 ability is link directory in same file system or over the network
 Deleting target file makes symbolic link useless
 sym link creates separate inode from target file.
+
 
 find the file name ending with .md and look for content apple
 ```
@@ -81,6 +86,7 @@ kill %n (n is the suspended process number)
 postfix is mail service running in linux box
 
 Standard out and standard error(file descriptor)
+```
 0 -> Standard input :reading from keyboard file
 1 -> standard output : writing  to screen
 2 -> standard error : writing to error file and  --> output to screen
@@ -88,18 +94,21 @@ Standard out and standard error(file descriptor)
 script &> output.txt #shortcut to redirect stdout and stderr
 script 1> output.txt 2>&1  
 ./standard_error_output.py  1> stderr.txt 2>&1
+```
 
 load average:
 uptime
 top
 
 & nohup and disown:
+```
 script & --> runs process in background but still sends stdout to console
 nohup script & --> runs process in background and process keeps running even if terminal is session out or terminated.
 It redirects stdout and stderr to nohup.out
 disown --> if script is executed in background but forgot to use nohup, run disown script to keep running in background even if terminal is Terminated
 
 disown script
+```
 
 Virutal Memory
 swap memory
@@ -135,6 +144,7 @@ Init - executes run level
 Runlevel
 
 Runlevels:
+```
 0 = halt (shutdown)
 1 = single user mode
 2 = multi user mode
@@ -142,7 +152,7 @@ Runlevels:
 4 = un used
 5 = multi user with networking with GUI
 6 = reboot
-
+```
 Change default runlevel in the file /etc/inittab
 
 Managing boot process
