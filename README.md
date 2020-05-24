@@ -227,7 +227,7 @@ Save all the host details in ~/.ssh/config
 
 
 # Type of files in Linux:
-* - : regular file
+* `-` : regular file
 * d : directory
 * c : character device file:  ls -ld /dev/vmmon Character and block device files allow users and programs to communicate with hardware peripheral devices.
 * b : block device file: ls ld /dev/sda  Block devices are similar to character devices. They mostly govern hardware as hard drives, memory, etc
@@ -235,9 +235,7 @@ Save all the host details in ~/.ssh/config
 * p : named pipe: Similarly as Local sockets, named pipes allow communication between two local processes. They can be created by the mknod command and removed with the rm command.
 * l : symbolic link
 
-
 Process and thread:
-
 
 Kill hung Chef process:
 ```
