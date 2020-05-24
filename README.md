@@ -305,7 +305,7 @@ printf "\n"
 
 ```
 
-$ Basic Mysql:
+# Basic Mysql:
 ```
 ssh -v DB server
 sodu -i
