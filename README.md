@@ -70,27 +70,28 @@ Once login is completed, opening new terminal runs bashrc (path, alias, terminal
 For MaC OS, it runnings login shell every time.
 
 
-DNS Commands:
+#DNS Commands:
 ```
 host
 nslookup
 dig
 python -c "import socket;print(socket.gethostbyname('example.com'))"
 ```
+
+#Controls
 ctrl+c aborts process immediately
 ctrl+z suspends process(stop)
 
 jobs command will list suspended(stopped) process
 kill %n (n is the suspended process number)
 
-postfix is mail service running in linux box
+# postfix is mail service running in linux box
 
-Standard out and standard error(file descriptor)
+# Standard out and standard error(file descriptor)
+* 0 -> Standard input :reading from keyboard file
+* 1 -> standard output : writing  to screen
+* 2 -> standard error : writing to error file and  --> output to screen
 ```
-0 -> Standard input :reading from keyboard file
-1 -> standard output : writing  to screen
-2 -> standard error : writing to error file and  --> output to screen
-
 script &> output.txt #shortcut to redirect stdout and stderr
 script 1> output.txt 2>&1  
 ./standard_error_output.py  1> stderr.txt 2>&1
@@ -101,12 +102,11 @@ uptime
 top
 
 & nohup and disown:
-```
-script & --> runs process in background but still sends stdout to console
-nohup script & --> runs process in background and process keeps running even if terminal is session out or terminated.
+* script & --> runs process in background but still sends stdout to console
+* nohup script & --> runs process in background and process keeps running even if terminal is session out or terminated.
 It redirects stdout and stderr to nohup.out
-disown --> if script is executed in background but forgot to use nohup, run disown script to keep running in background even if terminal is Terminated
-
+* disown --> if script is executed in background but forgot to use nohup, run disown script to keep running in background even if terminal is Terminated
+```
 disown script
 ```
 
@@ -149,12 +149,12 @@ child process becomes orphan and init process becomes the parent process.
 orphan process can be stopped using kill command
 ```
 
-PROCESS STATE CODES:
-   R  running or runnable (on run queue)
-   D  uninterruptible sleep (usually IO)
-   S  interruptible sleep (waiting for an event to complete)
-   Z  defunct/zombie, terminated but not reaped by its parent
-   T  stopped, either by a job control signal or because
+# PROCESS STATE CODES:
+* R  running or runnable (on run queue)
+* D  uninterruptible sleep (usually IO)
+* S  interruptible sleep (waiting for an event to complete)
+* Z  defunct/zombie, terminated but not reaped by its parent
+* T  stopped, either by a job control signal or because
       it is being traced
 
 
@@ -180,24 +180,23 @@ dig -x <IP address>
 ```
 
 
-Boot process:
-BIOS(basic Input/Output system): hardware check execute MBR
-MBR(master boot record): executes grub
-GRUB(Grand Unified Boot loader): executes kernel
-Kernel - execute /sbin/init
-Init - executes run level
-Runlevel
+#Boot process:
+* BIOS(basic Input/Output system): hardware check execute MBR
+* MBR(master boot record): executes grub
+* GRUB(Grand Unified Boot loader): executes kernel
+* Kernel - execute /sbin/init
+* Init - executes run level
+* Runlevel
 
-Runlevels:
-```
-0 = halt (shutdown)
-1 = single user mode
-2 = multi user mode
-3 = multi user with networking(no GUI)
-4 = un used
-5 = multi user with networking with GUI
-6 = reboot
-```
+#Runlevels:
+* 0 = halt (shutdown)
+* 1 = single user mode
+* 2 = multi user mode
+* 3 = multi user with networking(no GUI)
+* 4 = un used
+* 5 = multi user with networking with GUI
+* 6 = reboot
+
 Change default runlevel in the file /etc/inittab
 
 Managing boot process
@@ -234,13 +233,13 @@ Save all the host details in ~/.ssh/config
 
 
 # Type of files in Linux:
-* 1 - : regular file
-* 2 d : directory
-* 3 c : character device file:  ls -ld /dev/vmmon Character and block device files allow users and programs to communicate with hardware peripheral devices.
-* 4 b : block device file: ls ld /dev/sda  Block devices are similar to character devices. They mostly govern hardware as hard drives, memory, etc
-* 5 s : local socket: ls -ld /dev/log file Local domain sockets are used for communication between processes. Generally, they are used by services such as X    windows,  syslog and et
-* 6 p : named pipe: Similarly as Local sockets, named pipes allow communication between two local processes. They can be created by the mknod command and removed with the rm command.
-* 7 l : symbolic link
+* - : regular file
+* d : directory
+* c : character device file:  ls -ld /dev/vmmon Character and block device files allow users and programs to communicate with hardware peripheral devices.
+* b : block device file: ls ld /dev/sda  Block devices are similar to character devices. They mostly govern hardware as hard drives, memory, etc
+* s : local socket: ls -ld /dev/log file Local domain sockets are used for communication between processes. Generally, they are used by services such as X    windows,  syslog and et
+* p : named pipe: Similarly as Local sockets, named pipes allow communication between two local processes. They can be created by the mknod command and removed with the rm command.
+* l : symbolic link
 
 
 Process and thread:
