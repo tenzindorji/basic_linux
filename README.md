@@ -98,9 +98,12 @@ script 1> output.txt 2>&1
 ./standard_error_output.py  1> stderr.txt 2>&1
 ```
 
-load average:
+# load average:
+* measures average load every 1m, 5m and 15m
+```
 uptime
 top
+```
 
 & nohup and disown:
 * script & --> runs process in background but still sends stdout to console
