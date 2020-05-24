@@ -29,8 +29,7 @@ Login to multiple linux servers:
 ```
 csshx IP IP IP
 ```
-
-hardlinks and softlinks:
+# hardlinks and softlinks:
 
 hardlinks is another name for a file and it cannot be used for directories and filesystem.
 Its inode address remains same. Even original file is deleted, hardlink still points to same inode address and can open the content.
@@ -70,7 +69,7 @@ Once login is completed, opening new terminal runs bashrc (path, alias, terminal
 For MaC OS, it runnings login shell every time.
 
 
-#DNS Commands:
+# DNS Commands:
 ```
 host
 nslookup
@@ -78,7 +77,7 @@ dig
 python -c "import socket;print(socket.gethostbyname('example.com'))"
 ```
 
-#Controls
+# Controls
 ctrl+c aborts process immediately
 ctrl+z suspends process(stop)
 
@@ -113,17 +112,17 @@ disown script
 Virutal Memory
 swap memory
 
-What is sticky bit:
-```
+# What is sticky bit:
 A sticky bit is a permission bit that is set on a directory that allows only the owner of the file within that directory or the root user to delete or rename the file. No other user has the needed privileges to delete the file created by some other user.
 
 To remove sticky bit:
+```
 sudo chmod -t /tmp
-
+```
 To set sticky bit:
+```
 $ sudo chmod +t /tmp
 ```
-
 
 check open files:
 lsof
@@ -134,20 +133,18 @@ $ netstat -natupx
 $ ss -lptuxa
 ```
 
-zombie process(defunc):
-```
+# zombie process(defunc):
+
 You can't really "kill" zombie processes because, well, they're already dead.
 
 zombie processes are not orphan processes, they are dead processes: processes that have finished executing and are waiting for the parent to reap them (collect information about their status). You are barking up the wrong tree trying to kill a zombie process because they are already dead. To get rid of a zombie process, kill its parent. Hope that helps.
-```
 
-orphan process:
-```
+# orphan process:
+
 When parent finishes the process before child and close the process without waiting for child to finish,
 child process becomes orphan and init process becomes the parent process.
 
 orphan process can be stopped using kill command
-```
 
 # PROCESS STATE CODES:
 * R  running or runnable (on run queue)
@@ -157,13 +154,12 @@ orphan process can be stopped using kill command
 * T  stopped, either by a job control signal or because
       it is being traced
 
-
-Output to console and and the file:
+# Output to console and and the file:
 ```
 echo "dfjks ahfkdf"|tee -a /tmp/tee.txt
 ```
 
-Enable package forwarding
+# Enable package forwarding
 ```
 echo 1 > /proc/sys/net/ipv4/ip_forward
 echo 0 > /proc/sys/net/ipv4/ip_forward #disable package forwarding
@@ -172,15 +168,13 @@ echo 0 > /proc/sys/net/ipv4/ip_forward #disable package forwarding
 SNMP(Simple Network Management Protocol):
 
 
-DNS:
-```
+# DNS:
 pointer record(PTR) or reverse DNS lookup
 A record maps the domain name to an IP address, the PTR record maps the IP address to a hostname
 dig -x <IP address>
-```
 
 
-#Boot process:
+# Boot process:
 * BIOS(basic Input/Output system): hardware check execute MBR
 * MBR(master boot record): executes grub
 * GRUB(Grand Unified Boot loader): executes kernel
@@ -188,7 +182,7 @@ dig -x <IP address>
 * Init - executes run level
 * Runlevel
 
-#Runlevels:
+# Runlevels:
 * 0 = halt (shutdown)
 * 1 = single user mode
 * 2 = multi user mode
@@ -209,7 +203,7 @@ pstree command gives hierachy of process initiated. In linux, init process is fi
 dmesg command to list boot loader logs /var/log
 
 
-how SSH key works?
+# How SSH key works?
 
 secure shell - cryptographic network protocol
   used for accessing remote server
@@ -278,7 +272,7 @@ Validate cert with end point:
 nmap --script ssl-cert fdatafeed-ccwebint-e2e.platform.intuit.net -p 443
 ```
 
-Splunk Queries:
+# Splunk Queries:
 
 ```
 index=index_name|top respStatus
@@ -322,7 +316,7 @@ index=index_name respStatus
 ```
 
 
-git:
+# git:
 
 ```
 #!/bin/bash
@@ -347,7 +341,7 @@ printf "\n"
 
 ```
 
-Basic Mysql:
+$ Basic Mysql:
 ```
 ssh -v DB server
 sodu -i
@@ -402,7 +396,7 @@ select * from <tablename> limit 5; #list only 5 rows
 COMMIT;
 ```
 
-HTTP Status code:
+# HTTP Status code:
 ```
 Informational 1XX
   100 continue
@@ -448,18 +442,19 @@ Server Error 5XX
   505 HTTP version not supported
 ```
 
-How HTTP Proxy works?
-What is HTTP reverse proxy?
+# How HTTP Proxy works?
+# What is HTTP reverse proxy?
 
-How HTTPS works?(Works in application layer in TCP/IP model)
+# How HTTPS works?(Works in application layer in TCP/IP model)
 https://www.youtube.com/watch?v=33VYnE7Bzpk
   why HTTPS?
     Encryption
       Hiding what is send from one computer to another
     Identification
       Making sure the computer you are speaking to is the one you trust
-SSL Secure Sockets layer
-TLS Transport layer security
+
+# SSL Secure Sockets layer
+# TLS Transport layer security
 symmetric key(same key encryption in client and server) and asymmetric key(public private key combination) encryption
 asymmetric encryption is used to transfer symmetric key to the sever securely for all the data encryptions.
 How SSL handshake happens?
@@ -470,7 +465,7 @@ How SSL handshake happens?
 5) Server decrypts the symmetric key using its private key.
 6) Now client and server can encrypt/decrypt using symmetric key for all their data exchange.
 
-AWS Cloud Formation:
+# AWS Cloud Formation:
 Functions:
 Fn::Base64
 Fn::FindInMap
