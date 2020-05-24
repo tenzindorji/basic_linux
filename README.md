@@ -232,14 +232,15 @@ ssh-keygen  #command to generate ssh key pair
 can change the login behavior in the file /etc/ssh/ssh_config  /etc/ssh/sshd_config
 Save all the host details in ~/.ssh/config
 
-Type of files in Linux:
-1 - : regular file
-2 d : directory
-3 c : character device file:  ls -ld /dev/vmmon Character and block device files allow users and programs to communicate with hardware peripheral devices.
-4 b : block device file: ls ld /dev/sda  Block devices are similar to character devices. They mostly govern hardware as hard drives, memory, etc
-5 s : local socket: ls -ld /dev/log file Local domain sockets are used for communication between processes. Generally, they are used by services such as X    windows,  syslog and et
-6 p : named pipe: Similarly as Local sockets, named pipes allow communication between two local processes. They can be created by the mknod command and removed with the rm command.
-7 l : symbolic link
+
+# Type of files in Linux:
+* 1 - : regular file
+* 2 d : directory
+* 3 c : character device file:  ls -ld /dev/vmmon Character and block device files allow users and programs to communicate with hardware peripheral devices.
+* 4 b : block device file: ls ld /dev/sda  Block devices are similar to character devices. They mostly govern hardware as hard drives, memory, etc
+* 5 s : local socket: ls -ld /dev/log file Local domain sockets are used for communication between processes. Generally, they are used by services such as X    windows,  syslog and et
+* 6 p : named pipe: Similarly as Local sockets, named pipes allow communication between two local processes. They can be created by the mknod command and removed with the rm command.
+* 7 l : symbolic link
 
 
 Process and thread:
