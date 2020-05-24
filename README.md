@@ -105,9 +105,8 @@ top
 * nohup script & --> runs process in background and process keeps running even if terminal is session out or terminated.
 It redirects stdout and stderr to nohup.out
 * disown --> if script is executed in background but forgot to use nohup, run disown script to keep running in background even if terminal is Terminated
-```
-disown script
-```
+
+`disown script`
 
 Virutal Memory
 swap memory
@@ -116,23 +115,20 @@ swap memory
 A sticky bit is a permission bit that is set on a directory that allows only the owner of the file within that directory or the root user to delete or rename the file. No other user has the needed privileges to delete the file created by some other user.
 
 To remove sticky bit:
-```
-sudo chmod -t /tmp
-```
-To set sticky bit:
-```
-$ sudo chmod +t /tmp
-```
+`sudo chmod -t /tmp`
 
-check open files:
-lsof
-What is the command used to show all open ports and/or socket connections on a machine?
+To set sticky bit:
+`$ sudo chmod +t /tmp`
+
+# check open files:
+`lsof`
+
+# What is the command used to show all open ports and/or socket connections on a machine?
 ```
 $ lsof -i
 $ netstat -natupx
 $ ss -lptuxa
 ```
-
 # zombie process(defunc):
 
 You can't really "kill" zombie processes because, well, they're already dead.
@@ -158,7 +154,6 @@ orphan process can be stopped using kill command
 ```
 echo "dfjks ahfkdf"|tee -a /tmp/tee.txt
 ```
-
 # Enable package forwarding
 ```
 echo 1 > /proc/sys/net/ipv4/ip_forward
@@ -166,7 +161,6 @@ echo 0 > /proc/sys/net/ipv4/ip_forward #disable package forwarding
 ```
 
 SNMP(Simple Network Management Protocol):
-
 
 # DNS:
 pointer record(PTR) or reverse DNS lookup
@@ -213,15 +207,18 @@ secure shell - cryptographic network protocol
   Public key is used for encrypting data and private key is used for decrypting the data
 
 copy public key to remote server:
+```
 ssh-copy-id - ~/.ssh/id_rsa_pub tdorji@x.x.x.x
 or scp
+```
 
-
-known_hosts # stores server's public key in the user computer and remembers the server. If the server is recreated, it will showing warning.
-authorized_keys # exist on server side. The private key is kept on the computer you log in from, while the public key is stored on the .ssh/authorized_keys file on all the severs you want to log in to.
-
+# known_hosts
+stores server's public key in the user computer and remembers the server. If the server is recreated, it will showing warning.
+# authorized_keys
+exist on server side. The private key is kept on the computer you log in from, while the public key is stored on the .ssh/authorized_keys file on all the severs you want to log in to.
+```
 ssh-keygen  #command to generate ssh key pair
-
+```
 can change the login behavior in the file /etc/ssh/ssh_config  /etc/ssh/sshd_config
 Save all the host details in ~/.ssh/config
 
