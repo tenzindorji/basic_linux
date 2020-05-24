@@ -29,6 +29,13 @@ Login to multiple linux servers:
 ```
 csshx IP IP IP
 ```
+
+# What does the immutable bit do to a file?
+* makes files unchangable so that it cannot be erased during software upgrades
+
+# What is /etc/services?
+* list of ports is a small local database that lists all server programs
+
 # hardlinks and softlinks:
 
 hardlinks:
@@ -159,18 +166,51 @@ orphan process can be stopped using kill command
 echo "dfjks ahfkdf"|tee -a /tmp/tee.txt
 ```
 # Enable package forwarding
+* Sets ip_forwarding to true, default is 0. allows port forwarding
 ```
 echo 1 > /proc/sys/net/ipv4/ip_forward
 echo 0 > /proc/sys/net/ipv4/ip_forward #disable package forwarding
 ```
 
-SNMP(Simple Network Management Protocol):
+
+# What is shell variable?
+* User define variable
+  ```
+  id=10
+  name="Dorji"
+  ```
+* Environment variable
+* export name # is the environment variable
+  are defined by Shell
+  ```
+  PATH
+  HOME
+  TERM
+  SHELL
+  ```
+* Predefined variable
+  ```
+  $1 $2
+  ```
+# Export command
+* pass environment variable to other processes
+* printenv, can use them to store passwords or api keys, store temporary files
+```
+name="dorji"
+echo $name  
+printenv name
+export name
+printenv name
+```
+* Once the terminal is closed, environment variable is removed
+
+# SNMP(Simple Network Management Protocol):
 
 # DNS:
 pointer record(PTR) or reverse DNS lookup
 A record maps the domain name to an IP address, the PTR record maps the IP address to a hostname
-dig -x <IP address>
 
+`dig -x <IP address>`
 
 # Boot process:
 * BIOS(basic Input/Output system): hardware check execute MBR
@@ -232,14 +272,33 @@ Save all the host details in ~/.ssh/config
 * d : directory
 * c : character device file:  ls -ld /dev/vmmon Character and block device files allow users and programs to communicate with hardware peripheral devices.
 * b : block device file: ls ld /dev/sda  Block devices are similar to character devices. They mostly govern hardware as hard drives, memory, etc
+    `mknod` is the command to create block devices
 * s : local socket: ls -ld /dev/log file Local domain sockets are used for communication between processes. Generally, they are used by services such as X    windows,  syslog and et
 * p : named pipe: Similarly as Local sockets, named pipes allow communication between two local processes. They can be created by the mknod command and removed with the rm command.
 * l : symbolic link
 
 Process and thread:
+* Fork gives you a brand new process which is a copy of the current process, with same code segments.
+* thread - lightweight process
+* process- memory, processor, virtual mem
+
+
+# NTP Server (Network time protocol)
+* ntpq -p # reachability statistics -
+*
+*
+
+# How can you limit process memory usage?
+`ulimit -sv`
+
+# How can you tell if the httpd package was already installed?
+`dpkg --get-selections | grep apache`
 
 
 
+# Devops Questions:
+## You need to upgrade kernel at 100-1000 servers, how you would do this?
+* Chef or ansible or salt. some configuration management tool
 
 # Splunk Queries:
 
