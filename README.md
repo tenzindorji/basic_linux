@@ -234,38 +234,8 @@ Save all the host details in ~/.ssh/config
 
 Process and thread:
 
-Kill hung Chef process:
-```
-sudo ps -ef|awk '/chef/ {print $2}'|xargs -n1 -I% bash -c "sudo kill -9 %"
-```
-
-Remove New line from the file: This is very useful for storing secrets and passwords for automation
-```
-perl -p -i -e 's/\R//g;' filename
-```
-
-google Doc: Vlookup:
-```
-=iferror(VLOOKUP(A64,Sheet33!$A$1:$C$264,3,False),0)
-```
 
 
-AWS:
-```
-aws --profile cfao-fdsqa --region us-west-2 ec2 describe-network-interfaces
-aws --profile cfao-fdsqa --region us-west-2 iam list-server-certificates
-aws iam list-server-certificates
-```
-
-SSL Management
-```
-Find End date:
-openssl x509 -enddate -noout -in file.pem
-Validate cert with secret key:
-openssl rsa -in file.pem
-Validate cert with end point:
-nmap --script ssl-cert fdatafeed-ccwebint-e2e.platform.intuit.net -p 443
-```
 
 # Splunk Queries:
 
@@ -309,7 +279,6 @@ Dashboard query:
 index=index_name respStatus
 | timechart span=$tok_span$  count by respStatus
 ```
-
 
 # git:
 
@@ -460,6 +429,16 @@ How SSL handshake happens?
 5) Server decrypts the symmetric key using its private key.
 6) Now client and server can encrypt/decrypt using symmetric key for all their data exchange.
 
+# SSL Management
+```
+Find End date:
+openssl x509 -enddate -noout -in file.pem
+Validate cert with secret key:
+openssl rsa -in file.pem
+Validate cert with end point:
+nmap --script ssl-cert fdatafeed-ccwebint-e2e.platform.intuit.net -p 443
+```
+
 # AWS Cloud Formation:
 Functions:
 Fn::Base64
@@ -475,3 +454,24 @@ AWS::NotificationARNs
 AWS::Region
 AWS::StackId
 AWS::StackName
+
+```
+aws --profile cfao-fdsqa --region us-west-2 ec2 describe-network-interfaces
+aws --profile cfao-fdsqa --region us-west-2 iam list-server-certificates
+aws iam list-server-certificates
+```
+
+Kill hung Chef process:
+```
+sudo ps -ef|awk '/chef/ {print $2}'|xargs -n1 -I% bash -c "sudo kill -9 %"
+```
+
+Remove New line from the file: This is very useful for storing secrets and passwords for automation
+```
+perl -p -i -e 's/\R//g;' filename
+```
+
+google Doc: Vlookup:
+```
+=iferror(VLOOKUP(A64,Sheet33!$A$1:$C$264,3,False),0)
+```
