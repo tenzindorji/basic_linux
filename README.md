@@ -88,7 +88,7 @@ kill %n (n is the suspended process number)
 
 # postfix is mail service running in linux box
 
-## Standard out and standard error(file descriptor)
+# Standard out and standard error(file descriptor)
 * 0 -> Standard input :reading from keyboard file
 * 1 -> standard output : writing  to screen
 * 2 -> standard error : writing to error file and  --> output to screen
@@ -97,7 +97,7 @@ script &> output.txt #shortcut to redirect stdout and stderr
 script 1> output.txt 2>&1  
 ./standard_error_output.py  1> stderr.txt 2>&1
 ```
-# & nohup and disown:
+## & nohup and disown:
 * script & --> runs process in background but still sends stdout to console
 * nohup script & --> runs process in background and process keeps running even if terminal is session out or terminated.
 It redirects stdout and stderr to nohup.out
