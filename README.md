@@ -30,6 +30,10 @@ Login to multiple linux servers:
 csshx IP IP IP
 ```
 
+# tar command to zip the file
+`tar -czvf test.tar dir_or_filename`
+`tar -xvf test.tar`
+
 # What does the immutable bit do to a file?
 * makes files unchangable so that it cannot be erased during software upgrades
 ```
@@ -188,6 +192,9 @@ orphan process can be stopped using kill command
 * Z  defunct/zombie, terminated but not reaped by its parent
 * T  stopped, either by a job control signal or because
       it is being traced
+
+# kernal panic
+
 
 # Output to console and and the file:
 ```
