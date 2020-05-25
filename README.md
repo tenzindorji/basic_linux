@@ -557,9 +557,9 @@ nmap --script ssl-cert fdatafeed-ccwebint-e2e.platform.intuit.net -p 443
 # OSI and TCP/IP Models - PDU
 ||OSI|TCP/IP|Protocol Data Unit|
 |---|---|------|---|
-|7|Application|^|Data|
-|6|Presentation|Application||
-|5|Session|||
+|7|Application||Data|
+|6|Presentation|Application|^|
+|5|Session|^||
 |4|Transport|Transport|Segments|
 |3|Network|Internet|Packets|
 |2|Data Link|Network Access|Frames|
