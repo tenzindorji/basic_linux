@@ -46,7 +46,7 @@ rm: cannot remove 'immutablefile.txt': Operation not permitted
 ```
 
 # What is /etc/services?
-* list of ports is a small local database that lists all server programs
+* list of ports/TCP Protocol is a small local database that lists all server programs
 
 # hardlinks and softlinks:
 
@@ -85,9 +85,10 @@ bash_profile - interactive login
 
 The default shell, a Bourne shell, reads commands from ~/.profile(for all shell) when it is invoked as the login shell.\
 Bash is a Bourne-like shell. It reads commands from ~/.bash_profile(only for bash) when it is invoked as the login shell,\
-and if that file doesn't exist, it tries reading ~/.profile instead.
+and if that file doesn't exist, it tries reading ~/.profile instead and it compatible with any bash shell.\
+And If file doesn't exist it reads from /etc/profile and set java path.
 
-Once login is completed, opening new terminal runs bashrc (path, alias, terminal settings).
+Once login is completed, opening new terminal runs bashrc (path, alias, terminal settings).\
 
 For MaC OS, it runnings login shell every time.
 
