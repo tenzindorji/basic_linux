@@ -69,15 +69,15 @@ grep -ir "apple" .
 # .profile .bash_profile .bashrc
 bashrc and bash_profile are system files and are hidden\
 bashrc -  interactive non-login\
-bash_profile - interactive login\
+bash_profile - interactive login
 
 The default shell, a Bourne shell, reads commands from ~/.profile(for all shell) when it is invoked as the login shell.\
 Bash is a Bourne-like shell. It reads commands from ~/.bash_profile(only for bash) when it is invoked as the login shell,\
 and if that file doesn't exist, it tries reading ~/.profile instead.
 
-Once login is completed, opening new terminal runs bashrc (path, alias, terminal settings).\
+Once login is completed, opening new terminal runs bashrc (path, alias, terminal settings).
 
-For MaC OS, it runnings login shell every time.\
+For MaC OS, it runnings login shell every time.
 
 # DNS Commands:
 ```
@@ -88,11 +88,11 @@ python -c "import socket;print(socket.gethostbyname('example.com'))"
 ```
 
 # Controls
-ctrl+c aborts process immediately
+ctrl+c aborts process immediately\
 ctrl+z suspends process(stop)
 
 jobs command will list suspended(stopped) process
-kill %n (n is the suspended process number)
+`kill %n (n is the suspended process number)`
 
 # postfix is mail service running in linux box
 
@@ -124,7 +124,7 @@ top
 # swap memory
 
 # What is sticky bit:
-A sticky bit is a permission bit that is set on a directory that allows only the owner of the file within that directory or the root user to delete or rename the file. No other user has the needed privileges to delete the file created by some other user.
+A sticky bit is a permission bit that is set on a directory that allows only the owner of the file within that directory or the root user to delete\ or rename the file. No other user has the needed privileges to delete the file created by some other user.
 
 To remove sticky bit:
 `sudo chmod -t /tmp`
@@ -208,7 +208,7 @@ printenv name
 # SNMP(Simple Network Management Protocol):
 
 # DNS:
-pointer record(PTR) or reverse DNS lookup
+pointer record(PTR) or reverse DNS lookup\
 A record maps the domain name to an IP address, the PTR record maps the IP address to a hostname
 
 `dig -x <IP address>`
@@ -232,10 +232,12 @@ A record maps the domain name to an IP address, the PTR record maps the IP addre
 
 Change default runlevel in the file /etc/inittab
 
-Managing boot process
+# Managing boot process
 init script:
+```
 /init.d/(start,stop,restart, status)
 chkconfig
+```
 
 pstree command gives hierachy of process initiated. In linux, init process is first process created with process ID 1
 
@@ -245,10 +247,10 @@ dmesg command to list boot loader logs /var/log
 # How SSH key works?
 
 secure shell - cryptographic network protocol
-  used for accessing remote server
-  ssh uses a Asymmetric Cipher (Public and private key pair)
-  cipher is algorithm performing encryption and decryption
-  there are many encryption method(rsa, dsa, ed25519)
+  used for accessing remote server\
+  ssh uses a Asymmetric Cipher (Public and private key pair)\
+  cipher is algorithm performing encryption and decryption\
+  there are many encryption method(rsa, dsa, ed25519)\
   Public key is used for encrypting data and private key is used for decrypting the data
 
 copy public key to remote server:
@@ -483,8 +485,8 @@ https://www.youtube.com/watch?v=33VYnE7Bzpk
 
 # SSL Secure Sockets layer
 # TLS Transport layer security
-symmetric key(same key encryption in client and server) and asymmetric key(public private key combination) encryption
-asymmetric encryption is used to transfer symmetric key to the sever securely for all the data encryptions.
+symmetric key(same key encryption in client and server) and asymmetric key(public private key combination) encryption\
+asymmetric encryption is used to transfer symmetric key to the sever securely for all the data encryptions.\
 How SSL handshake happens?
 1) client makes https request to the server
 2) server send its public key with SSL certificate to the client.
