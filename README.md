@@ -32,6 +32,18 @@ csshx IP IP IP
 
 # What does the immutable bit do to a file?
 * makes files unchangable so that it cannot be erased during software upgrades
+```
+chattr +i filename # set immutable bit, root user cannot delete and modify the file
+chattr -i filename # remove immutable bit
+lsattr # list the immutable files
+
+MAC OS:
+sudo chflags schg immutablefile.txt
+sudo chflags noschg immutablefile.txt
+
+rm -rf immutablefile.txt
+rm: cannot remove 'immutablefile.txt': Operation not permitted
+```
 
 # What is /etc/services?
 * list of ports is a small local database that lists all server programs
