@@ -40,10 +40,10 @@ csshx IP IP IP
 
 hardlinks:
 
-Is another name for a file and it cannot be used for directories and filesystem.
-Its inode address remains same. Even original file is deleted, hardlink still points to same inode address and can open the content.
-Changes to the file content is reflected to all hardlinks.
-File is only deleted once all the hardlinks are deleted
+Is another name for a file and it cannot be used for directories and filesystem.\
+Its inode address remains same. Even original file is deleted, hardlink still points to same inode address and can open the content.\
+Changes to the file content is reflected to all hardlinks.\
+File is only deleted once all the hardlinks are deleted\
 Hardlink have same inode
 
 command:
@@ -67,16 +67,17 @@ grep -ir "apple" .
 ```
 
 # .profile .bash_profile .bashrc
-bashrc and bash_profile are system files and are hidden
-bashrc -  interactive non-login
-bash_profile - interactive login
+bashrc and bash_profile are system files and are hidden\
+bashrc -  interactive non-login\
+bash_profile - interactive login\
 
-The default shell, a Bourne shell, reads commands from ~/.profile(for all shell) when it is invoked as the login shell.
-Bash is a Bourne-like shell. It reads commands from ~/.bash_profile(only for bash) when it is invoked as the login shell, and if that file doesn't exist, it tries reading ~/.profile instead.
+The default shell, a Bourne shell, reads commands from ~/.profile(for all shell) when it is invoked as the login shell.\
+Bash is a Bourne-like shell. It reads commands from ~/.bash_profile(only for bash) when it is invoked as the login shell,\
+and if that file doesn't exist, it tries reading ~/.profile instead.
 
-Once login is completed, opening new terminal runs bashrc (path, alias, terminal settings).
+Once login is completed, opening new terminal runs bashrc (path, alias, terminal settings).\
 
-For MaC OS, it runnings login shell every time.
+For MaC OS, it runnings login shell every time.\
 
 # DNS Commands:
 ```
