@@ -154,6 +154,20 @@ $ lsof -i
 $ netstat -natupx
 $ ss -lptuxa
 ```
+
+# netcat (nc)
+* Netcat (or nc) is a command-line utility that reads and writes data across network connections, using the TCP or UDP protocols
+* Can share files remotely
+* Can share messages remotely
+```
+nc -lvp 2222 # on remote server
+  hello - received message
+nc x.x.x.x(remote server IP) port(2222)
+  hello # sent message
+
+nc -lvp 2222 > fileshared.txt
+nc x.x.x.x port < test.txt
+```
 # zombie process(defunc):
 
 You can't really "kill" zombie processes because, well, they're already dead.
