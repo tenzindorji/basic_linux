@@ -571,21 +571,13 @@ nmap --script ssl-cert fdatafeed-ccwebint-e2e.platform.intuit.net -p 443
 * MAC media access control
 * Encapsulation creating packets by moving down the model
 * Decapsulation moves up the model and gets the data
+* OSI Model(Open Source Interconnection)
+* TCP/IP(Trasmission Control Protocol)
 
 # Data Encapulation and Decapsulation
 ![Data Encapulation and Decapsulation](image2.png)
 
 ![TCP/IP each layer working](image.png)
-
-<!-- TOC -->
-# OSI Model(Open Source Interconnection)
-  -
-    -
-
-<!-- /TOC -->
-# TCP/IP(Trasmission Control Protocol)
-
-
 
 
 # AWS Cloud Formation:
