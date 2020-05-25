@@ -31,8 +31,10 @@ csshx IP IP IP
 ```
 
 # tar command to zip the file
-`tar -czvf test.tar dir_or_filename`
-`tar -xvf test.tar`
+```
+tar -czvf test.tar dir_or_filename
+tar -xvf test.tar
+```     
 
 # What does the immutable bit do to a file?
 * makes files unchangable so that it cannot be erased during software upgrades
@@ -504,8 +506,22 @@ Server Error 5XX
   505 HTTP version not supported
 ```
 
-# How HTTP Proxy works?
+# How HTTP Proxy(inscure) works?
+* HTTP Proxy is the server which hides the identity of the client
+  * Benifits:
+    * Anonimity
+    * caching
+    * Blocking unwanted sites
+    * GeoFencing
+
 # What is HTTP reverse proxy?
+* HTTP Reverse Proxy is the server which client doesn't know which server it is connected to.
+  * Benifits:
+    * Load Balancing
+    * Caching
+    * Isolating internal traffic
+    * Logging
+    * Canary Deployment
 
 # How HTTPS works?(Works in application layer in TCP/IP model)
 https://www.youtube.com/watch?v=33VYnE7Bzpk
@@ -536,6 +552,33 @@ openssl rsa -in file.pem
 Validate cert with end point:
 nmap --script ssl-cert fdatafeed-ccwebint-e2e.platform.intuit.net -p 443
 ```
+
+
+# OSI and TCP/IP Models - PDU
+||OSI|TCP/IP|Protocol Data Unit|
+|---|---|------|---|
+|7|Application||Data|
+|6|Presentation|Application||
+|5|Session|||
+|4|Transport|Transport|Segments|
+|3|Network|Internet|Packets|
+|2|Data Link|Network Access|Frames|
+|1|Physical||bits|
+
+
+
+
+
+<!-- TOC -->
+# OSI Model(Open Source Interconnection)
+  -
+    -
+
+<!-- /TOC -->
+# TCP/IP(Trasmission Control Protocol)
+
+
+
 
 # AWS Cloud Formation:
 Functions:
