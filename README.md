@@ -555,19 +555,23 @@ nmap --script ssl-cert fdatafeed-ccwebint-e2e.platform.intuit.net -p 443
 
 
 # OSI and TCP/IP Models - PDU
-||OSI|TCP/IP|Protocol Data Unit|
-|---|---|------|---|
-|7|Application||Data|
-|6|Presentation|Application|^|
-|5|Session|^||
-|4|Transport|Transport|Segments|
-|3|Network|Internet|Packets|
-|2|Data Link|Network Access|Frames|
-|1|Physical||bits|
+||OSI|TCP/IP|Protocol Data Unit|Devices|Protocols|
+|---|---|------|---|---|---|
+|7|Application||Data|Layer 7 Firewall|HTTP,DNS,DHCP, FTP, Telnet, SSH, SMTP, POP, IMAP, NTP, SNMP, TLS,SSL, BGP, RIP, SIP|
+|6|Presentation|Application||||
+|5|Session|||||
+|4|Transport|Transport|Segments|Layer 4 Firewall|TCP/UDP|
+|3|Network|Internet|Packets|Router, multilayer switch, Wireless router|IPv4, IPv6, ICMP, IPsec, OSPF, EIGRP|
+|2|Data Link|Network Access|Frames|switch, NIC, Wireless Access Point|MAC, ARP,Ethernet 802.3, CDP, LLDP, HDLC, PPP,DSL,L2TP, 802.11,SONET/SDH(firber optic)|
+|1|Physical||bits|HUB, NIC, Wireless Access Point|Ones and zero, electrical pulses|
 
 
-
-
+* ICMP internet control message protocol (used for Ping)
+* IPsec provide IP security
+* MAC media access control
+* Encapsulation creating packets by moving down the model
+* Decapsulation moves up the model and gets the data
+![Data Encapulation and Decapsulation](image.png)
 
 <!-- TOC -->
 # OSI Model(Open Source Interconnection)
