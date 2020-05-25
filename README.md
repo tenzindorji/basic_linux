@@ -573,9 +573,9 @@ nmap --script ssl-cert fdatafeed-ccwebint-e2e.platform.intuit.net -p 443
 * Decapsulation moves up the model and gets the data
 
 # Data Encapulation and Decapsulation
-![Data Encapulation and Decapsulation](image1.png) 
+![Data Encapulation and Decapsulation](image1.png)
 
-![Data Encapulation and Decapsulation](image.png)
+![TCP/IP each layer working](image.png)
 
 <!-- TOC -->
 # OSI Model(Open Source Interconnection)
