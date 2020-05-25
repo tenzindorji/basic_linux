@@ -222,13 +222,13 @@ A record maps the domain name to an IP address, the PTR record maps the IP addre
 * Runlevel
 
 # Runlevels:
-* 0 = halt (shutdown)
-* 1 = single user mode
-* 2 = multi user mode
-* 3 = multi user with networking(no GUI)
-* 4 = un used
-* 5 = multi user with networking with GUI
-* 6 = reboot
+0 = halt (shutdown)\
+1 = single user mode\
+2 = multi user mode\
+3 = multi user with networking(no GUI)\
+4 = un used\
+5 = multi user with networking with GUI\
+6 = reboot
 
 Change default runlevel in the file /etc/inittab
 
@@ -288,8 +288,6 @@ Process and thread:
 
 # NTP Server (Network time protocol)
 * ntpq -p # reachability statistics -
-*
-*
 
 # How can you limit process memory usage?
 `ulimit -sv`
