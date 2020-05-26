@@ -29,6 +29,18 @@ Login to multiple linux servers:
 ```
 csshx IP IP IP
 ```
+# What is /etc/sudoers ?
+```
+root ALL=(ALL:ALL) ALL
+%admin ALL=(ALL:ALL) ALL
+%www ALL=(ALL:ALL) NOPASSWD=ALL
+```
+  - root user can run ALL commands from ALL(any) Host with ALL users and ALL groups
+  - `%` means groups and NOPASSWD=ALL means does't require to pass to run all commands
+
+# lost+found folder
+- corrupted files are stored in this folder
+- you will find this folder in each partition of the disk, like root and any other mounts
 
 # tar command to zip the file
 ```
@@ -332,6 +344,45 @@ Process and thread:
 `dpkg --get-selections | grep apache`
 
 
+# RAID:
+- Is Redundant Array of Inexpensive disks
+- Raid is just a collection of disks in a pool to become a logical volume
+- Create RAID:\
+http://iserverinc.us/blog-files/blogs/blog-links/Create-RAID-With-Linux/How-to-create-a-software-RAID-on-LINUX.pdf
+
+# Logical Volume management(LVM)
+  - Physical Vol
+    - Define physical
+      ```
+        #create physical vol
+        pvcreate /dev/sdb
+        pvcreate /dev/sdc
+        pvcreate /dev/sdd
+
+        pvscan -v #view all physical vol
+        ```
+  - Group Vol
+    ```
+      vgcreate <Group_Vol> /dev/sdb #First physical vol
+      vgextend <Group_Vol> /dev/sdc /dev/sdd
+      pvscan -v
+      ```
+    - You can only have one Group_Vol, so cannot use vgcreate command to remaining physical VOl.
+  - Logical Vol
+    ```
+    lvcreate -L 10G -n First_Drive Group_Vol
+              size    name name_of_the_vol
+    lvcreate -L 20G -n Second_Drive Group_Vol
+    ```
+  - Create File System with LV:
+    `mtfs -t file_system(ext4 or ext3) /dev/group_vol/logical_vol`
+  - mount LV:
+    `mount -t file_system /dev/group_vol/logical_vol /mount_point`
+
+  - Increase size on existing LVM(dynamic extension)
+    - Create physical VOl
+    - Extend Group Vol
+    - Extend LVM
 
 # Devops Questions:
 ## You need to upgrade kernel at 100-1000 servers, how you would do this?
